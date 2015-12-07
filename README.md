@@ -3,14 +3,8 @@ role-wcl-nodejs
 
 Strongly inspired from Stouts.nodejs
 
-[![Build Status](http://img.shields.io/travis/Stouts/Stouts.nodejs.svg?style=flat-square)](https://travis-ci.org/Stouts/Stouts.nodejs)
-[![Galaxy](http://img.shields.io/badge/galaxy-Stouts.nodejs-blue.svg?style=flat-square)](https://galaxy.ansible.com/list#/roles/983)
-
 Ansible role which manage nodejs and npm packages.
 
-#### Requirements
-
-Only tested on ubuntu for now.
 
 #### Variables
 
@@ -32,7 +26,7 @@ Example:
 - hosts: all
 
   roles:
-    - Stouts.nodejs
+    - role-wcl-nodejs
 
   vars:
     nodejs_npm_modules:
