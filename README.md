@@ -1,5 +1,7 @@
-Stouts.nodejs
+role-wcl-nodejs
 =============
+
+Strongly inspired from Stouts.nodejs
 
 [![Build Status](http://img.shields.io/travis/Stouts/Stouts.nodejs.svg?style=flat-square)](https://travis-ci.org/Stouts/Stouts.nodejs)
 [![Galaxy](http://img.shields.io/badge/galaxy-Stouts.nodejs-blue.svg?style=flat-square)](https://galaxy.ansible.com/list#/roles/983)

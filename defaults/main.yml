@@ -1,4 +1,8 @@
 ---
+nodejs_npm_configuration: {}
+#  production: true
+#  registry: https://registry.npmjs.org/
+
 
 nodejs_enabled: yes                       # The role is enabled
 nodejs_version: 4.2.2

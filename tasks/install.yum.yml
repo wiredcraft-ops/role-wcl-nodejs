@@ -1,8 +1,22 @@
 ---
+- name: Install required packages
+  yum: 
+    name={{ item }}
+    state=present
+  with_items:
+    - gcc-c++
+    - make
+    - epel-release
+
+- name: Preparation for installing nodejs
+  shell: 
+    creates=/etc/yum.repos.d/nodesource-el.repo
+    curl -sL https://rpm.nodesource.com/setup_4.x | bash -
 
 - name: Install nodejs
-  yum: name=nodejs
-
-- name: Install npm
-  yum: name=npm
+  yum: 
+    name={{ item }}
+    state=present
+  with_items:
+    - nodejs
 

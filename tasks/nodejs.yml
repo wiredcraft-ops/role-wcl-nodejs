@@ -9,6 +9,10 @@
 - include: install.src.yml
   when: nodejs_install == 'src'
 
+- name: Update npm configuration
+  shell: npm config set {{ item.key }} {{ item.value }} -g
+  with_dict: nodejs_npm_configuration
+
 - name: Install NPM modules
-  npm: name={{item}} global=yes
+  npm: name={{ item }} global=yes
   with_items: nodejs_npm_modules
