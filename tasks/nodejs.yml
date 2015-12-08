@@ -14,5 +14,8 @@
   with_dict: nodejs_npm_configuration
 
 - name: Install NPM modules
-  npm: name={{ item }} global=yes
+  npm:
+    name={{ item.split('=')[0] }}
+    global=yes
+    version={{ item.split('=')[1] | default('') }}
   with_items: nodejs_npm_modules
