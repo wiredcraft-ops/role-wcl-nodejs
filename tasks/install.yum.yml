@@ -13,6 +13,16 @@
     creates=/etc/yum.repos.d/nodesource-el.repo
     curl -sL https://rpm.nodesource.com/setup_4.x | bash -
 
+# getting nodesource-el.repo could be failed at last step without any
+# notification, or error raised, needs the following two steps to ensure.
+- name: Ensure nodesource repo file exists.
+  stat: path=/etc/yum.repos.d/nodesource-el.repo
+  register: node_repo_exists
+
+- fail:
+    msg="nodesource-el.repo file does not exists, not able to install node"
+  when: node_repo_exists.stat.isreg is not defined
+
 - name: Install nodejs
   yum: 
     name={{ item }}
