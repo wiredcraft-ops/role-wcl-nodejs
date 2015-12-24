@@ -1,6 +1,8 @@
 ---
 nodejs_npm_configuration: {}
-#  production: true
+# NOTE: you need to quote booleans as python will capitalize them and it won't be
+#       understood by npm
+#  production: "true"
 #  registry: https://registry.npmjs.org/
 
 
