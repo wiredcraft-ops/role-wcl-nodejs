@@ -24,7 +24,7 @@
   file:
     state=link
     src=/opt/node/bin/{{ item }}
-    dest=/usr/local/bin/{{ item }}
+    dest=/usr/bin/{{ item }}
     force=yes
   with_items:
     - node
