@@ -3,20 +3,20 @@
 - name: Fetch nodejs archive
   get_url: 
     url={{ nodejs_bin_url }}
-    dest=/opt/node-{{ nodejs_version }}.tar.gz
+    dest=/opt/node-v{{ nodejs_version }}.tar.gz
     force=no
 
 - name: Un-archive nodejs
   unarchive:
     copy=no
-    src=/opt/node-{{ nodejs_version }}.tar.gz
+    src=/opt/node-v{{ nodejs_version }}.tar.gz
     dest=/opt/
-    creates=/opt/node-{{ nodejs_version }}-linux-x{{ansible_userspace_bits|replace('32', '86')}}
+    creates=/opt/node-v{{ nodejs_version }}-linux-x{{ansible_userspace_bits|replace('32', '86')}}
 
 - name: Prepare link to latest nodejs version 
   file:
     state=link
-    src=/opt/node-{{ nodejs_version }}-linux-x{{ansible_userspace_bits|replace('32', '86')}}
+    src=/opt/node-v{{ nodejs_version }}-linux-x{{ansible_userspace_bits|replace('32', '86')}}
     dest=/opt/node
     force=yes
 
