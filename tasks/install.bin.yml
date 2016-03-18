@@ -11,12 +11,12 @@
     copy=no
     src=/opt/node-{{ nodejs_version }}.tar.gz
     dest=/opt/
-    creates=/opt/node-{{ nodejs_version }}-linux-{{ nodejs_arch }}
+    creates=/opt/node-{{ nodejs_version }}-linux-x{{ansible_userspace_bits|replace('32', '86')}}
 
 - name: Prepare link to latest nodejs version 
   file:
     state=link
-    src=/opt/node-{{ nodejs_version }}-linux-{{ nodejs_arch }}
+    src=/opt/node-{{ nodejs_version }}-linux-x{{ansible_userspace_bits|replace('32', '86')}}
     dest=/opt/node
     force=yes
 
