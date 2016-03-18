@@ -9,6 +9,9 @@
 - include: install.src.yml
   when: nodejs_install == 'src'
 
+- include: install.bin.yml
+  when: nodejs_install == 'bin'
+
 # TODO - make it idempotent
 - name: Update npm configuration
   shell: 

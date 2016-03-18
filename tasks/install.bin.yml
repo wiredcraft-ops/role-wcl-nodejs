@@ -1,0 +1,31 @@
+---
+# tasks file for sbux-nodejs
+- name: Fetch nodejs archive
+  get_url: 
+    url={{ nodejs_bin_url }}
+    dest=/opt/node-{{ nodejs_version }}.tar.gz
+    force=no
+
+- name: Un-archive nodejs
+  unarchive:
+    copy=no
+    src=/opt/node-{{ nodejs_version }}.tar.gz
+    dest=/opt/
+    creates=/opt/node-{{ nodejs_version }}-linux-{{ nodejs_arch }}
+
+- name: Prepare link to latest nodejs version 
+  file:
+    state=link
+    src=/opt/node-{{ nodejs_version }}-linux-{{ nodejs_arch }}
+    dest=/opt/node
+    force=yes
+
+- name: Prepare links to nodejs binaries
+  file:
+    state=link
+    src=/opt/node/bin/{{ item }}
+    dest=/usr/local/bin/{{ item }}
+    force=yes
+  with_items:
+    - node
+    - npm
