@@ -30,10 +30,10 @@
     - node
     - npm
 
-- name: Ensure proper PATH for nodejs
-  lineinfile:
-    line={{ item }}
-    dest=/etc/profile.d/99-node_path.sh
-    create=yes
-  with_items:
-    - export PATH=/opt/node/bin/:$PATH
+# - name: Ensure proper PATH for nodejs
+#   lineinfile:
+#     line={{ item }}
+#     dest=/etc/profile.d/99-node_path.sh
+#     create=yes
+#   with_items:
+#     - export PATH=/opt/node/bin/:$PATH
