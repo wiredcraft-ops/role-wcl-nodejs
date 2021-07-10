@@ -30,6 +30,12 @@
     - node
     - npm
 
+- name: Prepare link so both node and nodejs are acceptable executable name.
+  file:
+    state=link
+    src=/usr/bin/node
+    dest=/usr/bin/nodejs
+
 # - name: Ensure proper PATH for nodejs
 #   lineinfile:
 #     line={{ item }}
